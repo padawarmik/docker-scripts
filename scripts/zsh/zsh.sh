@@ -8,7 +8,7 @@ printf "Update of apt\n"
 apt update
 printf "ZSH and oh-my-zsh\n"
 apt install -y curl zsh git
-curl http://192.168.1.9:8085/.p10k.zsh -o ~/.p10k.zsh -s
+curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.p10k.zsh -o ~/.p10k.zsh -s
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 printf "Now I am going to clone requested plugins\n"
 sleep 1

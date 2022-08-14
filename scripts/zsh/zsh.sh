@@ -1,4 +1,3 @@
-# curl -s http://192.168.1.9:8085/zsh.sh | bash
 printf "\n\n"
 printf "_______________________________________________________________________________"
 printf "\n\nYou are going to install zsh with some plugins.\nYou have 10 seconds to cancel this action\n"

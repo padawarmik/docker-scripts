@@ -23,5 +23,5 @@ docker run -d -p 8000:80 --name sripts padawarm/scripts
 
 When the container is up you can use  the following command to execute the script:
 ```bash
-curl http://<ip_of_machine_with_container>:8000/zsh.sh | bash
+wget -O - http://<ip_of_machine_with_container>:8000/zsh.sh | bash
 ```

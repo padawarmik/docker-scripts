@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_zplug () {
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/main/installer/master/installer.zsh | zsh
 }
 
 sleep 1
@@ -14,24 +14,21 @@ sleep 10
 printf "Update of apt\n"
 apt update
 printf "ZSH and oh-my-zsh\n"
-apt install -y curl zsh git
+apt install -y curl zsh git neofetch
 curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.p10k.zsh -o ~/.p10k.zsh -s
-if [ -f ~/.zshrc ]
+if [ -f $HOME/.zshrc ]
 then
-    read -p "Your .zshrc file will be replaced. Do you want to continue?" -n 1 -r
-    echo
+    read -p "Your .zshrc file will be replaced. Do you want to continue?[Yy/Nn] " -n 1 -r
+    printf "\n"
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
+        printf "Deleting\n"
         rm ~/.zshrc -f
-        curl https://raw.githubusercontent.com/padawarmik/docker-scripts/zplug/scripts/zsh/.zshrc -o ~/.zshrc -s
+        curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.zshrc -o ~/.zshrc -s
     fi
 fi
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
-rm install.sh
-
-if [ ! -d "~/.zplug" ]
-then
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d "$HOME/.zplug" ]; then
     install_zplug
 fi
 chsh -s $(which zsh)

@@ -10,20 +10,23 @@ printf "ZSH and oh-my-zsh\n"
 apt install -y curl zsh git
 curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.p10k.zsh -o ~/.p10k.zsh -s
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-printf "Now I am going to clone requested plugins\n"
-sleep 1
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-printf "Changing of ~/.zshrc to apply changes\n"
-sed -i "/ZSH_THEME=/c\ZSH_THEME=\"powerlevel10k/powerlevel10k\"" ~/.zshrc
-sed -i "/plugins=/c\plugins=(git zsh-autosuggestions zsh-syntax-highlighting)" ~/.zshrc
-grep -q ZSH_AUTOSUGGEST_STRATEGY ~/.zshrc
-if [ $? -eq 1 ]
-then
-    echo "ZSH_AUTOSUGGEST_STRATEGY=" >> ~/.zshrc
-fi
-sed -i "/ZSH_AUTOSUGGEST_STRATEGY=/c\ZSH_AUTOSUGGEST_STRATEGY=(history completion)" ~/.zshrc
+
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+# printf "Now I am going to clone requested plugins\n"
+# sleep 1
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# printf "Changing of ~/.zshrc to apply changes\n"
+# sed -i "/ZSH_THEME=/c\ZSH_THEME=\"powerlevel10k/powerlevel10k\"" ~/.zshrc
+# sed -i "/plugins=/c\plugins=(git zsh-autosuggestions zsh-syntax-highlighting)" ~/.zshrc
+# grep -q ZSH_AUTOSUGGEST_STRATEGY ~/.zshrc
+# if [ $? -eq 1 ]
+# then
+#     echo "ZSH_AUTOSUGGEST_STRATEGY=" >> ~/.zshrc
+# fi
+# sed -i "/ZSH_AUTOSUGGEST_STRATEGY=/c\ZSH_AUTOSUGGEST_STRATEGY=(history completion)" ~/.zshrc
 chsh -s $(which zsh)
 if [ $SHELL == "/usr/bin/zsh" ]
 then

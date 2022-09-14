@@ -30,7 +30,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 if [ ! -d "~/.zplug" ]
 then
-    install_zplug()
+    install_zplug
 fi
 chsh -s $(which zsh)
 if [ $SHELL == "/usr/bin/zsh" ]

@@ -26,7 +26,7 @@ then
         curl https://raw.githubusercontent.com/padawarmik/docker-scripts/zplug/scripts/zsh/.zshrc -o ~/.zshrc -s
     fi
 fi
-sh -c "$(wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
 
 if [ ! -d "~/.zplug" ]
 then

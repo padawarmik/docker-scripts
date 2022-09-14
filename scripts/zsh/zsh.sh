@@ -9,6 +9,7 @@ apt update
 printf "ZSH and oh-my-zsh\n"
 apt install -y curl zsh git
 curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.p10k.zsh -o ~/.p10k.zsh -s
+curl https://raw.githubusercontent.com/padawarmik/docker-scripts/zplug/scripts/zsh/.zshrc -o ~/.zshrc -s
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh

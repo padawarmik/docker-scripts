@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_zplug () {
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/main/installer/master/installer.zsh | zsh
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
 
 sleep 1

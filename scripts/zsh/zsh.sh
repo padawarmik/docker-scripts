@@ -15,7 +15,7 @@ printf "Update of apt\n"
 apt update
 printf "ZSH and oh-my-zsh\n"
 apt install -y curl zsh git neofetch
-curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.p10k.zsh -o ~/.p10k.zsh -s
+curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.p10k.zsh -o $HOME/.p10k.zsh -s
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 if [ ! -d "$HOME/.zplug" ]; then
@@ -29,8 +29,8 @@ then
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         printf "Deleting\n"
-        rm ~/.zshrc -f
-        curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.zshrc -o ~/.zshrc -s
+        rm $HOME/.zshrc -f
+        curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.zshrc -o $HOME/.zshrc -s
     fi
 fi
 printf "\n\n"

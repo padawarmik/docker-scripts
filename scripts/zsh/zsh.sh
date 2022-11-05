@@ -22,10 +22,6 @@ if [ ! -d "$HOME/.zplug" ]; then
     install_zplug
 fi
 chsh -s $(which zsh)
-if [ $SHELL == "/usr/bin/zsh" ]
-then
-    omz reload 
-fi
 if [ -f $HOME/.zshrc ]
 then
     read -p "Your .zshrc file will be replaced. Do you want to continue?[Yy/Nn] " -n 1 -r

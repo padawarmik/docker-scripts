@@ -26,7 +26,7 @@ if [ $SHELL == "/usr/bin/zsh" ]
 then
     omz reload 
 fi
-gif [ -f $HOME/.zshrc ]
+if [ -f $HOME/.zshrc ]
 then
     read -p "Your .zshrc file will be replaced. Do you want to continue?[Yy/Nn] " -n 1 -r
     printf "\n"

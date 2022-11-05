@@ -21,7 +21,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 if [ ! -d "$HOME/.zplug" ]; then
     install_zplug
 fi
-chsh -s $(which zsh)
+
 if [ -f $HOME/.zshrc ]
 then
     read -p "Your .zshrc file will be replaced. Do you want to continue?[Yy/Nn] " -n 1 -r
@@ -34,4 +34,4 @@ then
     fi
 fi
 printf "\n\n"
-printf "The work has been done, restart your terminal now to feel the power of the ZSH command prompt\n"
+printf "The work has been done, restart your terminal now to feel the power of the ZSH command prompt\nNow you can run chsh -s '$(which zsh)' to set default shell"

@@ -12,9 +12,9 @@ printf "________________________________________________________________________
 printf "\n\n"
 sleep 10
 printf "Update of apt\n"
-apt update
+sudo apt update
 printf "ZSH and oh-my-zsh\n"
-apt install -y curl zsh git neofetch
+sudo apt install -y curl zsh git neofetch
 curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.p10k.zsh -o $HOME/.p10k.zsh -s
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended

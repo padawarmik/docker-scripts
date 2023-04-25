@@ -5,7 +5,7 @@ if [ -f ${HOME}/.zplug/init.zsh ]; then
 fi
 #cp - https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/cp/README.md
 #docker-compose - https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/docker-compose/README.md
-plugins=(git docker-compose cp)
+plugins=(git docker-compose cp kubectl helm)
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-autosuggestions", defer:2

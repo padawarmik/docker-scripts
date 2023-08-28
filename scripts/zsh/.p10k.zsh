@@ -112,7 +112,11 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
-  )
+    pversion
+    )
+    function prompt_pversion() {
+      p10k segment -i '➤' -t $PZSHVER -f 208
+    }
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-v3

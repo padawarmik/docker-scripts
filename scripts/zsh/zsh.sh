@@ -3,7 +3,7 @@
 install_zplug () {
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
-K9S_VERSION=v0.27.4
+K9S_VERSION=v0.32.5
 sleep 1
 printf "\n\n"
 printf "_______________________________________________________________________________"
@@ -24,12 +24,8 @@ then
   printf "\n"
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-    echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-    curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
-    sudo apt-get update
-    sudo apt-get install -y kubectl helm
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
     wget https://github.com/derailed/k9s/releases/download/${K9S_VERSION}/k9s_Linux_amd64.tar.gz
     tar -xf k9s_Linux_amd64.tar.gz
     sudo mv k9s /usr/bin/

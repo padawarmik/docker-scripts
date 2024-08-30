@@ -15,7 +15,7 @@ then
   printf "Update of apt\n"
   sudo apt update
   printf "ZSH and oh-my-zsh\n"
-  sudo apt install -y curl zsh git a-certificates apt-transport-https
+  sudo apt install -y curl zsh git ca-certificates apt-transport-https
   
   read -p "Do you want to install kubernetes tools?[Yy/Nn] " -n 1 -r
   printf "\n"

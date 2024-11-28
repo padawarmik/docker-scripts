@@ -1,4 +1,4 @@
-PZSHVER="1.2"
+PZSHVER="1.3"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -33,6 +33,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light unixorn/kubectx-zshplugin
 
 # Add in snippets
 zinit snippet OMZP::azure

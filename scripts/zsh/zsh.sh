@@ -22,6 +22,8 @@ then
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    rm kubectl
     curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
     wget https://github.com/derailed/k9s/releases/download/${K9S_VERSION}/k9s_Linux_amd64.tar.gz
     tar -xf k9s_Linux_amd64.tar.gz
@@ -42,6 +44,8 @@ then
     rm $HOME/.zshrc -f
     curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.zshrc -o $HOME/.zshrc -s
   fi
+else
+  curl https://raw.githubusercontent.com/padawarmik/docker-scripts/main/scripts/zsh/.zshrc -o $HOME/.zshrc -s
 fi
 
 mkdir -p $HOME/.aliases
